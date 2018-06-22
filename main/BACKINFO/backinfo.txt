@@ -1,0 +1,40 @@
+#
+# Generated backup file, do not edit.
+#
+# Originally at: /hd0a/TEMP/backup.483200
+# 2016-12-12  13:54:54
+#
+>>SYSTEM_ID:
+120-504902
+
+>>PRODUCTS_ID:
+RobotWare Version: 6.03.02.00
+
+  RobotWare Base
+  709-1 DeviceNet Master/Slave
+  Motor Commutation
+  Service Info System
+  Pendelum Calibration
+  Drive System IRB 120/140/260/360/910SC/1200/1400/1520/1600 IRC5 Compact
+  Axis Calibration
+  IRB 120-3/0.6
+
+>>HOME:
+All public files and directories
+
+>>SYSPAR:
+SYS.cfg
+PROC.cfg
+MMC.cfg
+EIO.cfg
+SIO.cfg
+MOC.cfg
+
+
+>>TASK1: (T_ROB1,,)
+SYSMOD/user.sys @ 
+PROGMOD/MainMoudle.mod @ 
+SYSMOD/LINKEDM.sys @ HIDDEN
+
+
+>>EOF:

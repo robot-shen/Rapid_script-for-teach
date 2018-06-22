@@ -1,0 +1,43 @@
+PROC rCheckHomePos()
+VAR robtarget pActualPos;
+IF NOT CurrentPos(pHome,tGripper)THEN
+pActualPos:=CRobT(\Tool:=tGripper\WObj:=wobj0);
+pActualPos.trans.z:=pHome.trans.z;
+MoveL pActualPos,v100,z10,tGripper;
+MoveL pHome,v100,fine,tGripper;
+ENDIF
+ENDPROC
+
+FUNC bool CurrentPos(robtarget ComparePos,INOUT tooldata TCP)
+VAR num Counter:=0;
+VAR robtarget ActualPos;
+ActualPos:=CRobT(\Tool:=tGripper\WObj:=wobj0);
+IF ActualPos.trans.x>ComparePos.trans.x-25  AND
+ActualPos.trans.x<ComparePos.trans.x+25 Counter:=Counter+1;
+IF ActualPos.trans.y>ComparePos.trans.y-25  AND
+ActualPos.trans.y<ComparePos.trans.y+25 Counter:=Counter+1;
+IF ActualPos.trans.z>ComparePos.trans.z-25  AND
+ActualPos.trans.z<ComparePos.trans.z+25 Counter:=Counter+1;
+IF ActualPos.rot.q1>ComparePos.rot.q1-0.1  AND
+ActualPos.rot.q1<ComparePos.rot.q1+0.1 Counter:=Counter+1;
+IF ActualPos.rot.q2>ComparePos.rot.q2-0.1  AND
+ActualPos.rot.q2<ComparePos.rot.q2+0.1 Counter:=Counter+1;
+IF ActualPos.rot.q3>ComparePos.rot.q3-0.1  AND
+ActualPos.rot.q3<ComparePos.rot.q3+0.1 Counter:=Counter+1;
+IF ActualPos.rot.q4>ComparePos.rot.q4-0.1  AND
+ActualPos.rot.q4<ComparePos.rot.q4+0.1 Counter:=Counter+1;
+RETURN Counter=7;
+ENDFUNC
+
+
+
+
+PROC rMoveAbsj()
+MoveAbsj jposHome\NoEOffs,v100,fine,tGripper\WObj:=wobj0;
+ENDPROC
+PROC rModPos()
+MoveL pPick,v10,fine,tGripper\WObj:=WobjCNV;
+MoveL pPlaceBase,v10,fine,tGripper\WObj:=WobjBuffer;
+MoveL pHome,v10,fine,tGripper;
+ENDPROC
+ENDMOUDLE
